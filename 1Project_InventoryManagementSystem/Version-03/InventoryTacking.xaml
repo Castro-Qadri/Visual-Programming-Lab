@@ -1,0 +1,78 @@
+﻿<Window x:Class="InventoryTracking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Inventory Tracking" Height="600" Width="800"
+        Background="#F5F5F5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header Row -->
+            <RowDefinition Height="*"/>
+            <!-- Content Row -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Background="#4A90E2" Padding="10" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!-- Stretch TextBlock -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Refresh Button -->
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Inventory Tracking"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <StackPanel Grid.Row="1" Margin="10">
+            <!-- Form Section -->
+            <StackPanel Orientation="Vertical" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Product ID:" Width="100" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ProductIDTextBox" Width="200" Padding="5" Background="White" BorderBrush="#D0D0D0" BorderThickness="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Movement Type:" Width="100" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="MovementTypeComboBox" Width="200" Padding="5" Background="White" BorderBrush="#D0D0D0" BorderThickness="1">
+                        <ComboBoxItem Content="IN"/>
+                        <ComboBoxItem Content="OUT"/>
+                        <ComboBoxItem Content="ADJUSTMENT"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Quantity:" Width="100" VerticalAlignment="Center"/>
+                    <TextBox x:Name="QuantityTextBox" Width="200" Padding="5" Background="White" BorderBrush="#D0D0D0" BorderThickness="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Description:" Width="100" VerticalAlignment="Center"/>
+                    <TextBox x:Name="DescriptionTextBox" Width="200" Padding="5" Background="White" BorderBrush="#D0D0D0" BorderThickness="1"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Add Movement Button -->
+            <Button Content="Add Movement" Width="120" Background="#4A90E2" Foreground="White" BorderBrush="Black" HorizontalAlignment="Left" Margin="0,5,0,10"/>
+
+            <!-- DataGrid -->
+            <DataGrid x:Name="StockMovementsDataGrid"
+                      AutoGenerateColumns="False"
+                      Margin="0,10,0,0"
+                      Background="White"
+                      BorderBrush="#D0D0D0"
+                      BorderThickness="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Movement ID" Binding="{Binding MovementID}" Width="*"/>
+                    <DataGridTextColumn Header="Product ID" Binding="{Binding ProductID}" Width="*"/>
+                    <DataGridTextColumn Header="Movement Type" Binding="{Binding MovementType}" Width="*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
+                    <DataGridTextColumn Header="Movement Date" Binding="{Binding MovementDate}" Width="*"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

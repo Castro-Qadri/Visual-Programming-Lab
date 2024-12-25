@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="InventoryApp.Views.RegistrationPage"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+    x:Name="RegistrationControl">  
+    <Grid Background="#F4F4F4" HorizontalAlignment="Center" VerticalAlignment="Center">  
+        <StackPanel Width="300" Margin="20">
+            <TextBlock Text="Registration" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center" Foreground="SteelBlue"/>
+            <!-- Username TextBox -->  
+            <Grid Margin="0,0,0,10">  
+                <TextBox x:Name="UsernameTextBox"   
+                         Width="Auto"   
+                         Height="30"   
+                         VerticalAlignment="Center"/>  
+                <TextBlock Text="Username" Foreground="Gray" Margin="5,5,0,0" Visibility="Visible"/>  
+            </Grid>  
+
+            <!-- PasswordBox -->  
+            <Grid Margin="0,0,0,10">  
+                <PasswordBox x:Name="PasswordBox"   
+                             Height="30"   
+                             VerticalAlignment="Center" />  
+                <TextBlock Text="Password" Foreground="Gray" Margin="5,5,0,0" Visibility="Visible"/>  
+            </Grid>  
+
+            <!-- Email TextBox -->  
+            <Grid Margin="0,0,0,20">  
+                <TextBox x:Name="EmailTextBox"   
+                         Width="Auto"   
+                         Height="30"   
+                         VerticalAlignment="Center" />  
+                <TextBlock Text="Email" Foreground="Gray" Margin="5,5,0,0" Visibility="Visible"/>  
+            </Grid>
+
+            <!-- Register Button -->
+            <Button Content="Register"   
+        Width="150"   
+        Height="40"   
+        HorizontalAlignment="Center"   
+        Background="SteelBlue"  
+        Foreground="White"  
+        BorderBrush="DarkSlateGray"  
+        BorderThickness="2"  
+        FontWeight="Bold"  
+        FontSize="16"  
+        Click="RegisterButton_Click"/>
+
+            
+
+            <!-- Navigate to Login -->  
+            <TextBlock Text="Already have an account? Login here."   
+                       Foreground="Blue"   
+                       Cursor="Hand"   
+                       MouseDown="NavigateToLoginPage"   
+                       HorizontalAlignment="Center"   
+                       Margin="0,10,0,0"/>  
+        </StackPanel>  
+    </Grid>  
+</UserControl>
